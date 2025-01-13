@@ -1,7 +1,2 @@
 [build]
   command = "cd db && npm run start"
-
-[redirects]
-  from = "/(.*)"
-  to = "/json-server/server.js"
-  status = 200
