@@ -1,2 +1,8 @@
 [build]
   command = "cd db && npm run start"
+
+[routes]
+  [[redirects]]
+    from = "/*"
+    to = "/public/index.html"
+    status = 200
