@@ -8,7 +8,8 @@
           <p class="welcome-description">
             <b
               >"Join the fellowship of fans and share your love for The Lord of
-              the Rings!"</b><br/>
+              the Rings!"</b
+            ><br />
             Create your account to contribute your own trivia, explore others'
             insights, and become part of the Middle-earth community!
           </p>
@@ -205,9 +206,16 @@ export default {
 
       // checking if username already exists
       try {
-        const response = await axios.get("http://localhost:3000/users", {
-          params: { username: this.username },
-        });
+        const response = await axios.get(
+          "https://api.jsonbin.io/v3/b/6464a2c6f3a58b46bcfe5f10/users",
+          {
+            headers: {
+              "X-Master-Key":
+                "$2a$10$OtJPAyDO.N6eLAcMaC1.OO3k0ZABhJlJkX2UoY15NciTkH1XHYPeK",
+            },
+            params: { username: this.username },
+          }
+        );
 
         if (response.data.length > 0) {
           this.isUsernameValid = false;
@@ -249,7 +257,13 @@ export default {
     async checkIfEmailIsTaken() {
       try {
         const response = await axios.get(
-          `http://localhost:3000/users?email=${this.email}`
+          `https://api.jsonbin.io/v3/b/6464a2c6f3a58b46bcfe5f10/users?email=${this.email}`,
+          {
+            headers: {
+              "X-Master-Key":
+                "$2a$10$OtJPAyDO.N6eLAcMaC1.OO3k0ZABhJlJkX2UoY15NciTkH1XHYPeK",
+            },
+          }
         );
 
         // If the response contains any users, the email is taken
@@ -286,7 +300,11 @@ export default {
 
       // API call to register the user
       try {
-        const response = await axios.post("http://localhost:3000/users", {
+        const response = await axios.post("https://api.jsonbin.io/v3/b/6464a2c6f3a58b46bcfe5f10/users", {
+          headers: {
+            "X-Master-Key":
+              "$2a$10$OtJPAyDO.N6eLAcMaC1.OO3k0ZABhJlJkX2UoY15NciTkH1XHYPeK",
+          },
           username: this.username,
           email: this.email,
           password: this.password,

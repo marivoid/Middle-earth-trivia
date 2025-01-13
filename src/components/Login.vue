@@ -8,7 +8,8 @@
           <p class="welcome-description">
             <b
               >"Even the smallest person can change the course of the
-              future."</b><br/>
+              future."</b
+            ><br />
             Dive into the world of The Lord of the Rings with trivia from both
             the books and movies. Share your own trivia or test your knowledge
             on Middle-earth!
@@ -167,7 +168,13 @@ export default {
     async checkEmailExists() {
       // Check if email exists in your backend or JSON file
       let result = await axios.get(
-        `http://localhost:3000/users?email=${this.email}`
+        `https://api.jsonbin.io/v3/b/67856573e41b4d34e476e271/users?email=${this.email}`,
+        {
+          headers: {
+            "X-Master-Key":
+              "$2a$10$OtJPAyDO.N6eLAcMaC1.OO3k0ZABhJlJkX2UoY15NciTkH1XHYPeK",
+          },
+        }
       );
       this.isEmailExists = result.data.length > 0;
     },
@@ -200,10 +207,15 @@ export default {
 
       // After both checks are done, validate the login
       if (this.isEmailExists && this.isEmailValid && this.isPasswordValid) {
-        
         // Check if email exists in your data source (JSON file)
         let result = await axios.get(
-          `http://localhost:3000/users?email=${this.email}&password=${this.password}`
+          `https://api.jsonbin.io/v3/b/67856573e41b4d34e476e271/users?email=${this.email}&password=${this.password}`,
+          {
+            headers: {
+              "X-Master-Key":
+                "$2a$10$OtJPAyDO.N6eLAcMaC1.OO3k0ZABhJlJkX2UoY15NciTkH1XHYPeK", // Add your JSONBin API key
+            },
+          }
         );
         // If email exists and password matches
         if (result.status === 200 && result.data.length > 0) {
@@ -464,5 +476,4 @@ export default {
     width: 100%;
   }
 }
-
 </style>

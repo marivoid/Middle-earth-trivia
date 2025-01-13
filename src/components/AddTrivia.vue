@@ -3,14 +3,12 @@
     <Header />
     <div class="columns is-vcentered mx-6 mt-6 has-text-white">
       <div class="column is-6 has-text-left mt-6 px-5">
-        <h1 class="title mt-4 has-text-white">
-          Add your Middle-earth trivia!
-        </h1>
+        <h1 class="title mt-4 has-text-white">Add your Middle-earth trivia!</h1>
         <div class="subtitle has-text-white mt-6">
           Share your knowledge of The Lord of the Rings and contribute to the
-          growing archive of fascinating facts! Fill out the form to add
-          your own trivia piece for others to explore and enjoy. So whatcha
-          waiting for? Share them facts!
+          growing archive of fascinating facts! Fill out the form to add your
+          own trivia piece for others to explore and enjoy. So whatcha waiting
+          for? Share them facts!
         </div>
       </div>
 
@@ -115,10 +113,17 @@ export default {
   methods: {
     async add() {
       console.log(this.trivia);
-      const result = await axios.post("http://localhost:3000/trivia", {
-        title: this.trivia.title,
-        content: this.trivia.content,
-      });
+      const result = await axios.post(
+        "https://api.jsonbin.io/v3/b/6464a2c6f3a58b46bcfe5f10/trivia",
+        {
+          headers: {
+            "X-Master-Key":
+              "$2a$10$OtJPAyDO.N6eLAcMaC1.OO3k0ZABhJlJkX2UoY15NciTkH1XHYPeK",
+          },
+          title: this.trivia.title,
+          content: this.trivia.content,
+        }
+      );
       if (result.status == 201) {
         // if the new trivia was created, redirect me to the homepage
         this.$router.push({ name: "HomePage" });
@@ -135,7 +140,6 @@ export default {
 </script>
 
 <style>
-
 .bg {
   background-image: url(../assets/background.jpg);
   background-size: cover;
@@ -147,7 +151,6 @@ export default {
 }
 
 @media (min-width: 768px) and (max-width: 1025px) {
-
   .is-size-5 {
     font-size: 24px;
   }
@@ -155,10 +158,8 @@ export default {
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
-
   .is-size-5 {
     font-size: 18px;
   }
-
 }
 </style>
