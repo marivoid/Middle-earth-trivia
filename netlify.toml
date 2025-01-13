@@ -1,0 +1,7 @@
+[build]
+  command = "cd json-server && npm run start"
+
+[redirects]
+  from = "/(.*)"
+  to = "/json-server/server.js"
+  status = 200
