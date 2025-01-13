@@ -1,5 +1,5 @@
 [build]
-  command = "cd json-server && npm run start"
+  command = "cd db && npm run start"
 
 [redirects]
   from = "/(.*)"
