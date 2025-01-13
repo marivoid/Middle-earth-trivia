@@ -1,8 +1,8 @@
 [build]
-  command = "cd db && npm run start"
+  command = "npm run build" # Build command for Vue project
+  publish = "dist" # Folder where Vue project build files are output
 
-[routes]
-  [[redirects]]
-    from = "/*"
-    to = "/public/index.html"
-    status = 200
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
