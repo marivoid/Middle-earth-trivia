@@ -114,12 +114,8 @@ export default {
     async add() {
       console.log(this.trivia);
       const result = await axios.post(
-        "https://api.jsonbin.io/v3/b/6464a2c6f3a58b46bcfe5f10/trivia",
+        "https://json-server-trivia.onrender.com/trivia",
         {
-          headers: {
-            "X-Master-Key":
-              "$2a$10$OtJPAyDO.N6eLAcMaC1.OO3k0ZABhJlJkX2UoY15NciTkH1XHYPeK",
-          },
           title: this.trivia.title,
           content: this.trivia.content,
         }

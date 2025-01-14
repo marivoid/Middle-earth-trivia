@@ -94,7 +94,7 @@ export default {
       this.$router.push({ name: "SignUp" });
     }
 
-    let result = await axios.get("http://localhost:3000/trivia");
+    let result = await axios.get("https://json-server-trivia.onrender.com/trivia");
     console.log(result);
     console.log(this.trivia);
     this.trivia = result.data;

@@ -168,13 +168,7 @@ export default {
     async checkEmailExists() {
       // Check if email exists in your backend or JSON file
       let result = await axios.get(
-        `https://api.jsonbin.io/v3/b/67856573e41b4d34e476e271/users?email=${this.email}`,
-        {
-          headers: {
-            "X-Master-Key":
-              "$2a$10$OtJPAyDO.N6eLAcMaC1.OO3k0ZABhJlJkX2UoY15NciTkH1XHYPeK",
-          },
-        }
+        `https://json-server-trivia.onrender.com/users?email=${this.email}`,
       );
       this.isEmailExists = result.data.length > 0;
     },
@@ -209,13 +203,7 @@ export default {
       if (this.isEmailExists && this.isEmailValid && this.isPasswordValid) {
         // Check if email exists in your data source (JSON file)
         let result = await axios.get(
-          `https://api.jsonbin.io/v3/b/67856573e41b4d34e476e271/users?email=${this.email}&password=${this.password}`,
-          {
-            headers: {
-              "X-Master-Key":
-                "$2a$10$OtJPAyDO.N6eLAcMaC1.OO3k0ZABhJlJkX2UoY15NciTkH1XHYPeK", // Add your JSONBin API key
-            },
-          }
+          `https://json-server-trivia.onrender.com/users?email=${this.email}&password=${this.password}`,
         );
         // If email exists and password matches
         if (result.status === 200 && result.data.length > 0) {

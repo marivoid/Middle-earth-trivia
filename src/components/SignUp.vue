@@ -207,12 +207,8 @@ export default {
       // checking if username already exists
       try {
         const response = await axios.get(
-          "https://api.jsonbin.io/v3/b/6464a2c6f3a58b46bcfe5f10/users",
+          "https://json-server-trivia.onrender.com/users",
           {
-            headers: {
-              "X-Master-Key":
-                "$2a$10$OtJPAyDO.N6eLAcMaC1.OO3k0ZABhJlJkX2UoY15NciTkH1XHYPeK",
-            },
             params: { username: this.username },
           }
         );
@@ -257,13 +253,7 @@ export default {
     async checkIfEmailIsTaken() {
       try {
         const response = await axios.get(
-          `https://api.jsonbin.io/v3/b/6464a2c6f3a58b46bcfe5f10/users?email=${this.email}`,
-          {
-            headers: {
-              "X-Master-Key":
-                "$2a$10$OtJPAyDO.N6eLAcMaC1.OO3k0ZABhJlJkX2UoY15NciTkH1XHYPeK",
-            },
-          }
+          `https://json-server-trivia.onrender.com/users?email=${this.email}`,
         );
 
         // If the response contains any users, the email is taken
@@ -300,11 +290,7 @@ export default {
 
       // API call to register the user
       try {
-        const response = await axios.post("https://api.jsonbin.io/v3/b/6464a2c6f3a58b46bcfe5f10/users", {
-          headers: {
-            "X-Master-Key":
-              "$2a$10$OtJPAyDO.N6eLAcMaC1.OO3k0ZABhJlJkX2UoY15NciTkH1XHYPeK",
-          },
+        const response = await axios.post("https://json-server-trivia.onrender.com/users", {
           username: this.username,
           email: this.email,
           password: this.password,
