@@ -214,7 +214,7 @@ export default {
         );
 
         if (response.data.length > 0) {
-          this.isUsernameValid = false;
+          this.isUsernameValid = true;
           this.isUsernameInvalid = true;
           this.usernameErrorMessage = "Username is already taken.";
           this.isUsernameTaken = true;
